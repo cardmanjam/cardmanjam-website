@@ -3,158 +3,90 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Card Man Jam | Buy • Sell • Trade Collectibles</title>
-  <meta name="description" content="Card Man Jam buys, sells, and trades Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed products, coins, and collectibles. Text photos to 908-380-4898 for an offer." />
-  <meta property="og:title" content="Card Man Jam" />
-  <meta property="og:description" content="Buy • Sell • Trade Collectibles. Built by a collector, for collectors." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Card Man Jam | Retro Card Vault</title>
+  <meta name="description" content="Card Man Jam — buying, selling, and trading Pokémon, Yu-Gi-Oh!, slabs, sealed wax, and grails." />
+  <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="aurora aurora-one"></div>
-  <div class="aurora aurora-two"></div>
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>POKÉMON</span><span>YUGI-OH!</span><span>SPORTS CARDS</span><span>SEALED</span><span>SLABS</span><span>COINS</span><span>BUY • SELL • TRADE</span>
-      <span>POKÉMON</span><span>YUGI-OH!</span><span>SPORTS CARDS</span><span>SEALED</span><span>SLABS</span><span>COINS</span><span>BUY • SELL • TRADE</span>
+  <div class="scanlines"></div>
+  <div class="stars" id="stars"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="orb"></div>
+      <div>
+        <div class="logoText">CARD MAN JAM</div>
+        <div class="tiny">RETRO CARD VAULT</div>
+      </div>
     </div>
-  </div>
-
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Card Man Jam home">
-      <img src="assets/cardmanjam-logo.png" alt="Card Man Jam logo" />
-    </a>
-    <nav class="nav">
-      <a href="#shop">Shop</a>
-      <a href="#sell">Sell</a>
-      <a href="#vault">Vault</a>
-      <a href="#about">About</a>
+    <nav>
+      <a href="#grails">GRAILS</a>
+      <a href="#recent">LISTINGS</a>
+      <a href="#vault">VAULT</a>
+      <a class="btn small" href="https://www.ebay.com/str/cardmanjam" target="_blank" rel="noopener">SHOP EBAY</a>
     </nav>
-    <a class="header-cta" href="https://www.ebay.com/str/jamssecretvault" target="_blank" rel="noopener">Shop eBay</a>
   </header>
 
-  <main id="top">
-    <section class="hero section">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Built by a collector, for collectors</p>
-        <h1>Enter the<br><span>Card Man Vault.</span></h1>
-        <p class="hero-text">Buy, sell, and trade Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed product, coins, and collectibles with a small collector-owned business.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="https://www.ebay.com/str/jamssecretvault" target="_blank" rel="noopener">Shop Jam's Secret Vault</a>
-          <a class="button ghost" href="sms:19083804898">Text Photos to Sell</a>
-        </div>
-        <div class="trust-row">
-          <span>100% Positive Feedback</span><span>256 Items Sold</span><span>New Jersey Based</span>
-        </div>
-      </div>
-
-      <div class="hero-stage reveal delay-1" aria-label="Animated collectible cards">
-        <div class="creature-shadow shadow-a"></div>
-        <div class="creature-shadow shadow-b"></div>
-        <div class="slab slab-main tilt-card">
-          <div class="slab-label">CMJ VAULT</div>
-          <div class="card-art holo-gold"><span>GRAIL</span></div>
-          <div class="slab-footer">Always Buying • Selling • Trading</div>
-        </div>
-        <div class="floating-card fc-one tilt-card">PSA 10</div>
-        <div class="floating-card fc-two tilt-card">CGC 10</div>
-        <div class="floating-card fc-three tilt-card">BGS</div>
-        <div class="scan-line"></div>
-      </div>
-    </section>
-
-    <section class="stats-strip reveal">
-      <div><strong>Pokémon</strong><span>modern, vintage, slabs</span></div>
-      <div><strong>Yu-Gi-Oh!</strong><span>ghosts, secrets, ultis</span></div>
-      <div><strong>Sports</strong><span>rookies, autos, lots</span></div>
-      <div><strong>Collectibles</strong><span>coins, silver, oddballs</span></div>
-    </section>
-
-    <section id="shop" class="section vault-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Fresh from the store</p>
-        <h2>Featured vault picks</h2>
-        <p>Manual featured cards for tonight. These link to your eBay store now; live auto-sync is the next upgrade.</p>
-      </div>
-      <div class="card-grid">
-        <a class="listing-card reveal tilt-card" href="https://www.ebay.com/str/jamssecretvault" target="_blank" rel="noopener">
-          <div class="photo-card bird-set"><div class="foil"></div><span>Legendary Birds</span></div>
-          <h3>PSA 9 Legendary Birds Aoki Error Set</h3>
-          <p>Vintage Japanese promo grail set.</p>
-          <strong>$343.99</strong>
-        </a>
-        <a class="listing-card reveal delay-1 tilt-card" href="https://www.ebay.com/str/jamssecretvault" target="_blank" rel="noopener">
-          <div class="photo-card dragonite"><div class="foil"></div><span>Dragonite V</span></div>
-          <h3>PSA 10 Dragonite V Blue Sky Stream</h3>
-          <p>Japanese Pokémon Gem Mint slab.</p>
-          <strong>$116.00</strong>
-        </a>
-        <a class="listing-card reveal delay-2 tilt-card" href="https://www.ebay.com/str/jamssecretvault" target="_blank" rel="noopener">
-          <div class="photo-card stardust"><div class="foil"></div><span>Stardust</span></div>
-          <h3>PSA 10 Accel Synchro Stardust Dragon</h3>
-          <p>Yu-Gi-Oh! Secret Rare 1st Edition.</p>
-          <strong>$111.00</strong>
-        </a>
-        <a class="listing-card reveal delay-3 tilt-card" href="https://www.ebay.com/str/jamssecretvault" target="_blank" rel="noopener">
-          <div class="photo-card silver"><div class="foil"></div><span>Silver Proof</span></div>
-          <h3>Franklin Mint Sterling Silver Portrait</h3>
-          <p>2 oz troy sterling silver collectible.</p>
-          <strong>$154.35</strong>
-        </a>
-      </div>
-    </section>
-
-    <section id="sell" class="section sell-section">
-      <div class="sell-panel reveal">
-        <div>
-          <p class="eyebrow">Have cards to sell?</p>
-          <h2>Text photos. Get an offer.</h2>
-          <p>Send clear pictures of your cards, slabs, sealed product, or entire collection. If it fits the vault, Mike will send a fair no-pressure offer.</p>
-        </div>
-        <a class="phone-card" href="sms:19083804898">
-          <span>Text photos to</span>
-          <strong>908-380-4898</strong>
-          <small>One card, binders, sealed, lots, collections.</small>
-        </a>
-      </div>
-    </section>
-
-    <section id="vault" class="section experience-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Collector-first experience</p>
-        <h2>Small seller feel. Premium vault energy.</h2>
-      </div>
-      <div class="feature-grid">
-        <div class="feature reveal"><span>01</span><h3>Trusted Seller</h3><p>Built around real eBay reputation, fast replies, and careful shipping.</p></div>
-        <div class="feature reveal delay-1"><span>02</span><h3>Fair Offers</h3><p>No pressure. Text pictures and get a clean answer when the collection fits.</p></div>
-        <div class="feature reveal delay-2"><span>03</span><h3>Show Ready</h3><p>Made for business cards, card shows, eBay orders, and real-world collecting.</p></div>
-      </div>
-    </section>
-
-    <section id="about" class="section about-section">
-      <div class="about-card reveal">
-        <div class="mini-logo"><img src="assets/cardmanjam-logo.png" alt="Card Man Jam logo" /></div>
-        <div>
-          <p class="eyebrow">Meet the collector</p>
-          <h2>Card Man Jam is collector-owned.</h2>
-          <p>I'm Mike, a New Jersey collector buying, selling, trading, grading, and hunting for the next great card. This site is the home base for Jam's Secret Vault, future card show updates, and collection buying.</p>
-          <div class="about-actions">
-            <a class="button primary" href="https://www.ebay.com/str/jamssecretvault" target="_blank" rel="noopener">Open eBay Store</a>
-            <a class="button ghost" href="https://www.instagram.com/cardmanjam/" target="_blank" rel="noopener">Follow Instagram</a>
+  <main>
+    <section class="hero gamePanel">
+      <div class="ticker"><span>▣ A WILD GRAIL APPEARED ▣ A WILD GRAIL APPEARED ▣ A WILD GRAIL APPEARED</span></div>
+      <div class="heroGrid">
+        <div class="heroCopy">
+          <p class="eyebrow">★ LIVE FROM THE VAULT ★</p>
+          <h1>Buy. Sell. Trade.<br><span>Pull Grails.</span></h1>
+          <p class="sub">Pokémon, Yu-Gi-Oh!, slabs, sealed wax, vintage, modern, and weird shiny cardboard treasures.</p>
+          <div class="ctaRow">
+            <a class="btn" href="https://www.ebay.com/str/cardmanjam" target="_blank" rel="noopener">▶ SHOP LISTINGS</a>
+            <a class="btn ghost" href="#recent">VIEW DROPS</a>
           </div>
         </div>
+        <div class="pack" id="pack">
+          <div class="packTop">CARDMANJAM</div>
+          <div class="packCenter">VAULT<br>FOIL</div>
+          <button>▶ TAP TO OPEN</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="statStrip">
+      <div><b>225+</b><span>ACTIVE LISTINGS</span></div>
+      <div><b>SLABS</b><span>POKÉMON + YGO</span></div>
+      <div><b>NJ</b><span>BUY • SELL • TRADE</span></div>
+    </section>
+
+    <section id="grails" class="gamePanel revealPanel hidden">
+      <div class="modalCard">
+        <div class="ball"></div>
+        <h2>LAST RIP IS IN!</h2>
+        <p id="ripText">A wild graded grail was pulled into the vault.</p>
+        <div class="buttonPair"><button id="watchBtn">▶ WATCH</button><button id="skipBtn">SKIP</button></div>
+      </div>
+    </section>
+
+    <section id="recent" class="section">
+      <div class="sectionHead">
+        <p class="eyebrow">▣ RECENTLY LISTED</p>
+        <h2>Vault Picks of the Week</h2>
+      </div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section id="vault" class="gamePanel split">
+      <div>
+        <p class="eyebrow">PROF. JAM • ONLINE</p>
+        <h2>Hello there! Welcome to the world of Card Man Jam.</h2>
+        <p>Always buying, selling, and trading. Quick replies. Careful shipping. Combined shipping available. Check the eBay store for current inventory.</p>
+        <a class="btn" href="mailto:cardmanjam@gmail.com">CONTACT</a>
+      </div>
+      <div class="profBox">
+        <div class="prof">👨‍🔬</div>
+        <div class="speech">Looking for a grail? Check the link, trainer.</div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div>© <span id="year"></span> Card Man Jam</div>
-    <div class="footer-links"><a href="https://www.ebay.com/str/jamssecretvault" target="_blank" rel="noopener">eBay</a><a href="sms:19083804898">Text</a><a href="https://www.instagram.com/cardmanjam/" target="_blank" rel="noopener">Instagram</a></div>
-  </footer>
+  <button class="floating" id="oak">👨‍🔬</button>
+  <div class="toast" id="toast">✨ A wild grail appeared!</div>
 
   <script src="script.js"></script>
 </body>
