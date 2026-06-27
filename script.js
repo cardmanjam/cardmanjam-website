@@ -28,10 +28,10 @@ press?.addEventListener('click',()=>{
   document.querySelector('.site-shell')?.classList.add('booting');
   document.querySelectorAll('main section').forEach((el,i)=>setTimeout(()=>el.classList.add('fade-in'),i*120));
   setTimeout(()=>start.classList.add('hide'), 520);
-  localStorage.setItem('cmjStarted','yes');
+  localStorage.setItem('cmjIntroSeen_v852','yes');
 });
 
-if(localStorage.getItem('cmjStarted')==='yes'){
+if(localStorage.getItem('cmjIntroSeen_v852')==='yes'){
   start.style.display = 'none';
 }
 
@@ -57,14 +57,19 @@ setInterval(()=>{
   setTimeout(()=>s.remove(),1100);
 }, 450);
 
-const buddy = document.querySelector('.snorlax');
+const buddy = document.querySelector('.vault-buddy');
 buddy?.addEventListener('click',()=>{
-  buddy.textContent = buddy.textContent === '💤' ? '😳' : '💤';
+  buddy.classList.toggle('awake');
   playStartSound();
 });
 
 
 document.getElementById('replayIntro')?.addEventListener('click',()=>{
-  localStorage.removeItem('cmjStarted');
+  localStorage.removeItem('cmjIntroSeen_v852');
   location.reload();
+});
+
+
+window.addEventListener('scroll',()=>{
+  document.querySelector('.topbar')?.classList.toggle('scrolled', window.scrollY > 18);
 });

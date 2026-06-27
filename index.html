@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Card Man Jam | Retro Card Vault</title>
+  <title>Card Man Jam V8.5.2 | Retro Card Vault</title>
   <meta name="description" content="Card Man Jam is a New Jersey card seller buying, selling, and trading Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, silver, gold, and collectibles." />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -31,7 +31,6 @@
         <a href="#about">About</a>
         <a href="#inventory">Inventory</a>
         <a href="#sell">Sell Cards</a>
-        <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener" class="btn small">Shop eBay</a>
       </nav>
@@ -122,18 +121,18 @@
       <section class="section split" id="about">
         <div class="portrait-card photo-card tilt" data-tilt>
           <div class="photo-frame">
-            <img src="assets/about-photo.jpg" alt="Mike from Card Man Jam at a card show" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <img src="about-photo.jpg" alt="Mike from Card Man Jam at a card show" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='assets/about-photo.jpg';}else{this.style.display='none';this.nextElementSibling.style.display='grid';}">
             <div class="photo-fallback">CARD SHOW<br>PHOTO</div>
           </div>
-          <h3>Collector • Seller • Trader</h3>
-          <p>New Jersey based. Always looking for the next deal, grail, or clean collection.</p>
+          <h3>First show back</h3>
+          <p>New Jersey collector, seller, and trader. Always hunting for the next clean collection.</p>
         </div>
         <div class="panel story dialogue-story">
           <p class="eyebrow">👋 Meet Mike</p>
           <h2>Small seller from NJ with big dreams.</h2>
-          <div class="dialogue-box"><strong>Hey, I'm Mike.</strong><br>I’m a collector from New Jersey who’s been into sports cards and Pokémon since I was a kid.</div>
-          <div class="dialogue-box">I’ve always loved collectibles, silver, gold, sealed wax, hard assets, and the thrill of finding something overlooked.</div>
-          <div class="dialogue-box">Card Man Jam is my retro card vault. Peep the inventory — you never know what you may find.</div>
+          <div class="dialogue-box"><strong>Hey, I'm Mike.</strong><br>After more than a decade away from vending card shows, I finally got back behind the table with one of my best friends. That day reminded me why I fell in love with the hobby.</div>
+          <div class="dialogue-box">I’ve been collecting Pokémon, sports cards, Yu-Gi-Oh!, silver, gold, sealed wax, and other collectibles since I was a kid.</div>
+          <div class="dialogue-box">Card Man Jam is where I buy, sell, trade, and share the hobby with other collectors. Peep the inventory — you never know what you may find.</div>
         </div>
       </section>
 
@@ -165,7 +164,7 @@
     </footer>
   </div>
 
-  <div class="snorlax" title="Vault buddy">💤</div>
+  <div class="vault-buddy" title="Vault buddy"><span class="orb mini-orb"></span><b>CMJ</b></div>
   <script src="script.js"></script>
 </body>
 </html>
