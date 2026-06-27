@@ -1,14 +1,37 @@
-const listings = [
-  {title:'PSA / CGC Slab Grail', price:'Shop Now', meta:'Pokémon • Yu-Gi-Oh! • Vintage', img:'', url:'https://ebay.us/m/N9yYVK'},
-  {title:'Recently Listed Vault Pick', price:'New Drop', meta:'Fresh inventory weekly', img:'', url:'https://ebay.us/m/N9yYVK'},
-  {title:'Sealed Wax + Singles', price:'Browse', meta:'Always buying • selling • trading', img:'', url:'https://ebay.us/m/N9yYVK'}
+const EBAY_URL = 'https://ebay.us/m/N9yYVK';
+const cards = [
+  { title: 'Featured Slab Slot', price: 'TBD', grade: 'CARD MAN JAM • PSA / CGC / BGS', note: 'Manual photo coming soon' },
+  { title: 'Vault Pick Slot', price: 'TBD', grade: 'POKÉMON • YU-GI-OH! • SPORTS', note: 'No broken image links' },
+  { title: 'Recent Listing Slot', price: 'LIVE ON EBAY', grade: 'SHOP CURRENT INVENTORY', note: 'Tap through to storefront' }
 ];
-function makeStars(){const s=document.getElementById('stars');for(let i=0;i<70;i++){const e=document.createElement('i');e.className='star';e.style.left=Math.random()*100+'%';e.style.animationDelay=Math.random()*7+'s';e.style.opacity=Math.random();s.appendChild(e)}}
-function cardHTML(item){return `<article class="card"><div class="imgWrap">${item.img?`<img src="${item.img}" alt="${item.title}" onerror="this.remove();this.parentElement.innerHTML='<div class=fallback>?</div>'">`:`<div class="fallback">★</div>`}</div><h3>${item.title}</h3><p class="price">${item.price}</p><p class="meta">${item.meta}</p><a class="btn" target="_blank" rel="noopener" href="${item.url}">VIEW ON EBAY ↗</a></article>`}
-document.getElementById('cards').innerHTML=listings.map(cardHTML).join('');
-makeStars();
-const toast=document.getElementById('toast');
-function pop(){toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
-document.getElementById('oak').onclick=pop;document.getElementById('pack').onclick=()=>{document.querySelector('.revealPanel').classList.remove('hidden');document.getElementById('grails').scrollIntoView({behavior:'smooth'});pop()};
-document.getElementById('watchBtn').onclick=()=>{document.getElementById('ripText').textContent='Card Man Jam vault animation loading... check the newest eBay drops.';pop()};
-document.getElementById('skipBtn').onclick=()=>document.getElementById('recent').scrollIntoView({behavior:'smooth'});
+
+function makeStars(){
+  const wrap=document.getElementById('stars');
+  for(let i=0;i<70;i++){
+    const s=document.createElement('span');s.className='star';
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=Math.random()*2+'s';wrap.appendChild(s);
+  }
+}
+function renderCards(){
+  const el=document.getElementById('cards');
+  el.innerHTML = cards.map((c,i)=>`<article class="card">
+    <div class="slabArt" data-grade="${c.grade}"><div class="fakeCard"></div></div>
+    <p class="eyebrow">◆ VAULT SLOT ${i+1}</p>
+    <h3>${c.title}</h3>
+    <div class="price">${c.price}</div>
+    <p>${c.note}</p>
+    <a class="btn small" href="${EBAY_URL}" target="_blank" rel="noopener">VIEW EBAY ↗</a>
+  </article>`).join('');
+}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
+
+document.getElementById('pack').addEventListener('click',()=>toast('✨ Vault foil opened — inventory import coming soon!'));
+document.getElementById('pack').addEventListener('keydown',e=>{if(e.key==='Enter')toast('✨ Vault foil opened — inventory import coming soon!')});
+document.getElementById('oak').addEventListener('click',()=>toast('Professor Jam says: peep the eBay vault.'));
+document.getElementById('watchBtn').addEventListener('click',()=>toast('🎬 Rip animation unlocked for V7.'));
+document.getElementById('skipBtn').addEventListener('click',()=>location.href='#recent');
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+
+makeStars();renderCards();

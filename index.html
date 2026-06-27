@@ -4,43 +4,46 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Card Man Jam | Retro Card Vault</title>
-  <meta name="description" content="Card Man Jam — buying, selling, and trading Pokémon, Yu-Gi-Oh!, slabs, sealed wax, and grails." />
-  <link rel="preconnect" href="https://images.unsplash.com">
+  <meta name="description" content="Card Man Jam — NJ card seller buying, selling, and trading Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, silver, gold, and collectibles." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="scanlines"></div>
   <div class="stars" id="stars"></div>
+
   <header class="topbar">
-    <div class="brand">
+    <a class="brand" href="#home" aria-label="Card Man Jam home">
       <div class="orb"></div>
       <div>
         <div class="logoText">CARD MAN JAM</div>
         <div class="tiny">RETRO CARD VAULT</div>
       </div>
-    </div>
-    <nav>
+    </a>
+    <button class="menuBtn" id="menuBtn">☰</button>
+    <nav id="nav">
+      <a href="#about">ABOUT</a>
+      <a href="#inventory">INVENTORY</a>
+      <a href="#contact">CONTACT</a>
       <a href="#grails">GRAILS</a>
       <a href="#recent">LISTINGS</a>
-      <a href="#vault">VAULT</a>
       <a class="btn small" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">SHOP EBAY</a>
     </nav>
   </header>
 
-  <main>
+  <main id="home">
     <section class="hero gamePanel">
-      <div class="ticker"><span>▣ A WILD GRAIL APPEARED ▣ A WILD GRAIL APPEARED ▣ A WILD GRAIL APPEARED</span></div>
+      <div class="ticker"><span>▣ A WILD GRAIL APPEARED ▣ BUY • SELL • TRADE ▣ NJ CARD VAULT ▣ A WILD GRAIL APPEARED</span></div>
       <div class="heroGrid">
         <div class="heroCopy">
           <p class="eyebrow">★ LIVE FROM THE VAULT ★</p>
           <h1>Buy. Sell. Trade.<br><span>Pull Grails.</span></h1>
-          <p class="sub">Pokémon, Yu-Gi-Oh!, slabs, sealed wax, vintage, modern, and weird shiny cardboard treasures.</p>
+          <p class="sub">Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, vintage, modern, and weird shiny cardboard treasures.</p>
           <div class="ctaRow">
             <a class="btn" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">▶ SHOP LISTINGS</a>
-            <a class="btn ghost" href="#recent">VIEW DROPS</a>
+            <a class="btn ghost" href="#inventory">VIEW INVENTORY</a>
           </div>
         </div>
-        <div class="pack" id="pack">
+        <div class="pack" id="pack" role="button" tabindex="0">
           <div class="packTop">CARDMANJAM</div>
           <div class="packCenter">VAULT<br>FOIL</div>
           <button>▶ TAP TO OPEN</button>
@@ -50,15 +53,42 @@
 
     <section class="statStrip">
       <div><b>225+</b><span>ACTIVE LISTINGS</span></div>
-      <div><b>SLABS</b><span>POKÉMON + YGO</span></div>
-      <div><b>NJ</b><span>BUY • SELL • TRADE</span></div>
+      <div><b>NJ</b><span>SMALL SELLER</span></div>
+      <div><b>B/S/T</b><span>BUY • SELL • TRADE</span></div>
     </section>
 
-    <section id="grails" class="gamePanel revealPanel hidden">
+    <section id="about" class="gamePanel split sectionPad">
+      <div>
+        <p class="eyebrow">PROF. JAM • ONLINE</p>
+        <h2>Small seller from NJ. Big dreams. Bigger vault.</h2>
+        <p>I have been collecting sports cards and Pokémon cards since I was a kid. I have always been into collectibles, silver, gold, and real-world assets — the kind of stuff you can hold, stash, trade, and pass down.</p>
+        <p>Card Man Jam is my retro card vault: slabs, raw cards, sealed wax, oddball finds, and whatever shiny treasure shows up next. Peep my inventory — you never know what you may find.</p>
+        <div class="ctaRow"><a class="btn" href="#inventory">▶ INVENTORY</a><a class="btn ghost" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">SHOP EBAY</a></div>
+      </div>
+      <div class="profBox">
+        <div class="prof">🧢</div>
+        <div class="speech">Welcome to the vault, trainer. New finds drop all the time.</div>
+      </div>
+    </section>
+
+    <section id="inventory" class="section">
+      <div class="sectionHead">
+        <p class="eyebrow">▣ INVENTORY</p>
+        <h2>Live storefront import coming soon</h2>
+        <p>Blank for now while we decide between mass importing eBay listings or manually uploading the cleanest card photos.</p>
+      </div>
+      <div class="inventoryGrid">
+        <article class="emptySlot"><span>01</span><b>eBay Import</b><p>Future automatic storefront pull.</p></article>
+        <article class="emptySlot"><span>02</span><b>Manual Grails</b><p>Best slabs and higher-end cards.</p></article>
+        <article class="emptySlot"><span>03</span><b>Showcase Mode</b><p>Rotating vault picks and recent solds.</p></article>
+      </div>
+    </section>
+
+    <section id="grails" class="gamePanel revealPanel">
       <div class="modalCard">
         <div class="ball"></div>
         <h2>LAST RIP IS IN!</h2>
-        <p id="ripText">A wild graded grail was pulled into the vault.</p>
+        <p id="ripText">A wild Card Man Jam grail was pulled into the vault.</p>
         <div class="buttonPair"><button id="watchBtn">▶ WATCH</button><button id="skipBtn">SKIP</button></div>
       </div>
     </section>
@@ -71,21 +101,31 @@
       <div class="cards" id="cards"></div>
     </section>
 
-    <section id="vault" class="gamePanel split">
+    <section id="contact" class="gamePanel split sectionPad">
       <div>
-        <p class="eyebrow">PROF. JAM • ONLINE</p>
-        <h2>Hello there! Welcome to the world of Card Man Jam.</h2>
-        <p>Always buying, selling, and trading. Quick replies. Careful shipping. Combined shipping available. Check the eBay store for current inventory.</p>
-        <a class="btn" href="mailto:cardmanjam@gmail.com">CONTACT</a>
+        <p class="eyebrow">▣ CONTACT / SELL TO ME</p>
+        <h2>Got cards or collectibles?</h2>
+        <p>I am always looking to buy, sell, and trade. Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, silver, gold, and interesting collectible lots are all welcome.</p>
+        <p>Send clear photos, your asking price, and any grading/cert info if available. Local NJ deals considered when it makes sense.</p>
+        <div class="contactCards">
+          <a href="tel:+19083804898">📞 908-380-4898</a>
+          <a href="mailto:cardmanjam@gmail.com">✉️ cardmanjam@gmail.com</a>
+          <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">🛒 eBay Store</a>
+        </div>
       </div>
-      <div class="profBox">
-        <div class="prof">👨‍🔬</div>
-        <div class="speech">Looking for a grail? Check the link, trainer.</div>
+      <div class="wantedBox">
+        <h3>BUYLIST SIGNAL</h3>
+        <ul>
+          <li>Graded Pokémon / Yu-Gi-Oh!</li>
+          <li>Vintage sports lots</li>
+          <li>Sealed wax</li>
+          <li>Silver, gold, and oddball assets</li>
+        </ul>
       </div>
     </section>
   </main>
 
-  <button class="floating" id="oak">👨‍🔬</button>
+  <button class="floating" id="oak" aria-label="Open helper">🧢</button>
   <div class="toast" id="toast">✨ A wild grail appeared!</div>
 
   <script src="script.js"></script>
