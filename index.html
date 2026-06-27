@@ -4,132 +4,156 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Card Man Jam | Retro Card Vault</title>
-  <meta name="description" content="Card Man Jam — NJ small seller buying, selling, and trading Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, silver, gold, and collectibles." />
+  <meta name="description" content="Card Man Jam is a New Jersey card seller buying, selling, and trading Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, silver, gold, and collectibles." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div id="startScreen" class="start-screen" aria-label="Welcome screen">
+    <div class="start-box">
+      <div class="pixel-rule"></div>
+      <p class="mini">WELCOME TO</p>
+      <h1>CARD MAN JAM</h1>
+      <p class="mini">RETRO CARD VAULT</p>
+      <button id="pressStart" class="btn big">▶ PRESS START</button>
+      <p class="hint">Buy • Sell • Trade • Collect</p>
+      <div class="pixel-rule"></div>
+    </div>
+  </div>
 
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="Card Man Jam home">
-      <div class="orb"></div>
-      <div>
-        <div class="logoText">CARD MAN JAM</div>
-        <div class="tiny">RETRO CARD VAULT</div>
-      </div>
-    </a>
-    <button class="menuBtn" id="menuBtn" aria-label="Open navigation">☰</button>
-    <nav id="nav">
-      <a href="#about">ABOUT</a>
-      <a href="#inventory">INVENTORY</a>
-      <a href="#contact">CONTACT</a>
-      <a href="#featured">FEATURED</a>
-      <a href="#recent">LISTINGS</a>
-      <a class="btn small" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">SHOP EBAY</a>
-    </nav>
-  </header>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Card Man Jam home">
+        <span class="orb"></span>
+        <span><strong>CARD MAN JAM</strong><em>Retro Card Vault</em></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <nav id="nav">
+        <a href="#about">About</a>
+        <a href="#inventory">Inventory</a>
+        <a href="#sell">Sell Cards</a>
+        <a href="#contact">Contact</a>
+        <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener" class="btn small">Shop eBay</a>
+      </nav>
+    </header>
 
-  <main id="home">
-    <section class="hero gamePanel">
-      <div class="ticker"><span>• BUY • SELL • TRADE • NJ CARD VAULT • POKÉMON • YU-GI-OH! • SPORTS CARDS • SEALED WAX • COLLECTIBLES •</span></div>
-      <div class="heroGrid">
-        <div class="heroCopy">
-          <p class="eyebrow">★ LIVE FROM THE VAULT ★</p>
-          <h1>Buy. Sell. Trade.<br><span>Collect More.</span></h1>
-          <p class="sub">Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, vintage, modern, and weird shiny cardboard treasures.</p>
-          <div class="ctaRow">
-            <a class="btn" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">SHOP LISTINGS</a>
-            <a class="btn ghost" href="#inventory">VIEW INVENTORY</a>
+    <main id="home">
+      <section class="hero panel">
+        <div class="ticker">★ NEW JERSEY CARD VAULT ★ BUYING SELLING TRADING ★ POKÉMON • YU-GI-OH! • SPORTS ★</div>
+        <div class="hero-copy">
+          <p class="eyebrow">★ Live from the vault ★</p>
+          <h2>Buy. Sell. Trade.<span>Collect.</span></h2>
+          <p>Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, vintage, modern, and weird shiny cardboard treasures.</p>
+          <div class="actions">
+            <a class="btn" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">▶ Shop Listings</a>
+            <a class="btn ghost" href="#inventory">View Inventory</a>
           </div>
         </div>
-        <div class="pack" id="pack" role="button" tabindex="0" aria-label="Open vault preview">
-          <div class="packTop">CARDMANJAM</div>
-          <div class="packCenter">VAULT<br>PREVIEW</div>
-          <button type="button">TAP TO OPEN</button>
+        <div class="hero-card slab-card tilt" data-tilt>
+          <div class="slab-label">CARD MAN JAM • PSA / CGC / BGS</div>
+          <div class="card-art holo"><span>CMJ</span></div>
+          <h3>Featured Slab</h3>
+          <p>Manual card photo coming in V9</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="statStrip">
-      <div><b>225+</b><span>ACTIVE LISTINGS</span></div>
-      <div><b>NJ</b><span>SMALL SELLER</span></div>
-      <div><b>B/S/T</b><span>BUY • SELL • TRADE</span></div>
-    </section>
+      <section class="stats grid3">
+        <div><strong>225+</strong><span>Active listings</span></div>
+        <div><strong>NJ</strong><span>Small seller</span></div>
+        <div><strong>24/7</strong><span>eBay storefront</span></div>
+      </section>
 
-    <section id="about" class="gamePanel split sectionPad">
-      <div>
-        <p class="eyebrow">ABOUT CARD MAN JAM</p>
-        <h2>Small seller from NJ. Big dreams. Bigger vault.</h2>
-        <p>I have been collecting sports cards and Pokémon cards since I was a kid. I have always been into collectibles, silver, gold, and real-world assets — the kind of stuff you can hold, stash, trade, and pass down.</p>
-        <p>Card Man Jam is my retro card vault: slabs, raw cards, sealed wax, oddball finds, and whatever shiny treasure shows up next. Peep my inventory — you never know what you may find.</p>
-        <div class="ctaRow"><a class="btn" href="#inventory">INVENTORY</a><a class="btn ghost" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">SHOP EBAY</a></div>
-      </div>
-      <div class="profBox">
-        <div class="prof">🧢</div>
-        <div class="speech">Welcome to the vault. New cards, slabs, and oddball finds are always rotating in.</div>
-      </div>
-    </section>
+      <section class="section" id="grails">
+        <div class="section-head">
+          <p class="eyebrow">🔥 Featured cards</p>
+          <h2>Featured Grails</h2>
+        </div>
+        <div class="card-grid">
+          <article class="listing tilt" data-tilt>
+            <div class="mini-slab charizard"><span>FIRE</span></div>
+            <p class="tag">Vault Pick</p>
+            <h3>High-End Pokémon Slot</h3>
+            <strong>TBD</strong>
+            <p>Real card image + price once inventory is wired in.</p>
+            <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener" class="btn small">View eBay ↗</a>
+          </article>
+          <article class="listing tilt" data-tilt>
+            <div class="mini-slab blue"><span>WATER</span></div>
+            <p class="tag">Slab Showcase</p>
+            <h3>PSA / CGC / BGS Cards</h3>
+            <strong>TBD</strong>
+            <p>Clean placeholders for now. No broken image icons.</p>
+            <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener" class="btn small">View eBay ↗</a>
+          </article>
+          <article class="listing tilt" data-tilt>
+            <div class="mini-slab gold"><span>RARE</span></div>
+            <p class="tag">Fresh Inventory</p>
+            <h3>Recently Listed</h3>
+            <strong>Live on eBay</strong>
+            <p>Tap through for current listings while V9 API waits.</p>
+            <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener" class="btn small">View eBay ↗</a>
+          </article>
+        </div>
+      </section>
 
-    <section id="inventory" class="section">
-      <div class="sectionHead">
-        <p class="eyebrow">INVENTORY</p>
-        <h2>Storefront import coming soon</h2>
-        <p>Leaving this clean for now while we decide between mass importing eBay listings or manually uploading the best card photos. No broken image links in this version.</p>
-      </div>
-      <div class="inventoryGrid">
-        <article class="emptySlot"><span>01</span><b>eBay Import</b><p>Future automatic storefront pull.</p></article>
-        <article class="emptySlot"><span>02</span><b>Manual Showcase</b><p>Best slabs and higher-end cards.</p></article>
-        <article class="emptySlot"><span>03</span><b>Fresh Finds</b><p>Rotating pickups, show inventory, and recent solds.</p></article>
-      </div>
-    </section>
+      <section class="section panel" id="inventory">
+        <div class="section-head">
+          <p class="eyebrow">📦 Inventory</p>
+          <h2>Current Inventory</h2>
+          <p>This section is intentionally staged for V9. It will either connect to your eBay API or accept manual uploads for your best cards.</p>
+        </div>
+        <div class="inventory-empty">
+          <div class="empty-card">?</div>
+          <div>
+            <h3>Inventory import coming soon</h3>
+            <p>For now, shop the live storefront. V9 can pull newest listings, images, titles, and prices directly from eBay once API credentials are set up.</p>
+            <a class="btn" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">Shop Current eBay Inventory</a>
+          </div>
+        </div>
+      </section>
 
-    <section id="featured" class="gamePanel revealPanel">
-      <div class="modalCard">
-        <div class="vaultIcon"></div>
-        <p class="eyebrow">FEATURED VAULT PICK</p>
-        <h2>New cards added weekly</h2>
-        <p id="ripText">Browse the live eBay store now. A full Card Man Jam inventory page is coming next.</p>
-        <div class="buttonPair"><a class="btn" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">SHOP EBAY</a><a class="btn ghost" href="#recent">SEE PREVIEWS</a></div>
-      </div>
-    </section>
+      <section class="section split" id="about">
+        <div class="panel story">
+          <p class="eyebrow">👋 Meet Mike</p>
+          <h2>Small seller from NJ with big dreams.</h2>
+          <p>I’ve been collecting sports and Pokémon cards since I was a kid. I’ve always been into collectibles, silver, gold, and hard assets — the kind of stuff you can hold, trade, and hunt for.</p>
+          <p>Card Man Jam is my retro card vault: Pokémon, Yu-Gi-Oh!, sports, slabs, sealed wax, vintage, modern, and whatever weird treasures I come across.</p>
+          <p>Peep my inventory — you never know what you may find.</p>
+        </div>
+        <div class="portrait-card tilt" data-tilt>
+          <div class="trainer">CMJ</div>
+          <h3>Collector • Seller • Trader</h3>
+          <p>New Jersey based. Always looking for the next deal, grail, or clean collection.</p>
+        </div>
+      </section>
 
-    <section id="recent" class="section">
-      <div class="sectionHead">
-        <p class="eyebrow">RECENTLY LISTED</p>
-        <h2>Preview slots</h2>
-        <p>These are built-in preview cards for now, so they load every time. We can swap them for real photos when you upload the exact card images.</p>
-      </div>
-      <div class="cards" id="cards"></div>
-    </section>
-
-    <section id="contact" class="gamePanel split sectionPad">
-      <div>
-        <p class="eyebrow">CONTACT / SELL TO ME</p>
+      <section class="section panel" id="sell">
+        <p class="eyebrow">💬 Sell to me</p>
         <h2>Got cards or collectibles?</h2>
-        <p>I am always looking to buy, sell, and trade. Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, silver, gold, and interesting collectible lots are all welcome.</p>
-        <p>Send clear photos, your asking price, and any grading/cert info if available. Local NJ deals considered when it makes sense.</p>
-        <div class="contactCards">
-          <a href="tel:+19083804898">📞 908-380-4898</a>
-          <a href="mailto:cardmanjam@gmail.com">✉️ cardmanjam@gmail.com</a>
-          <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">🛒 eBay Store</a>
+        <p>I’m always buying, selling, and trading. I’m especially interested in Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, larger collections, silver, gold, and collectible assets.</p>
+        <div class="pill-row">
+          <span>Pokémon</span><span>Yu-Gi-Oh!</span><span>Sports</span><span>Slabs</span><span>Sealed Wax</span><span>Gold</span><span>Silver</span>
         </div>
-      </div>
-      <div class="wantedBox">
-        <h3>BUYLIST</h3>
-        <ul>
-          <li>Graded Pokémon / Yu-Gi-Oh!</li>
-          <li>Vintage sports lots</li>
-          <li>Sealed wax</li>
-          <li>Silver, gold, and oddball assets</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+        <a class="btn" href="tel:9083804898">Text / Call 908-380-4898</a>
+      </section>
 
-  <button class="floating" id="helper" aria-label="Open helper">💼</button>
-  <div class="toast" id="toast">Vault preview opened.</div>
+      <section class="section" id="contact">
+        <div class="contact-card panel">
+          <p class="eyebrow">📬 Contact</p>
+          <h2>Let’s make a deal.</h2>
+          <p><strong>Phone:</strong> <a href="tel:9083804898">908-380-4898</a></p>
+          <p><strong>eBay:</strong> <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">Shop Card Man Jam</a></p>
+          <p>Send pictures, prices, or what you’re looking to move. I’ll take a look and get back to you.</p>
+        </div>
+      </section>
+    </main>
 
+    <footer>
+      <strong>CARD MAN JAM</strong>
+      <span>Retro Card Vault • NJ • Always Buying, Selling & Trading</span>
+    </footer>
+  </div>
+
+  <div class="snorlax" title="Vault buddy">💤</div>
   <script src="script.js"></script>
 </body>
 </html>

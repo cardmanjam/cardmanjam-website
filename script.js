@@ -1,35 +1,62 @@
-const EBAY_URL = 'https://ebay.us/m/N9yYVK';
-const cards = [
-  { title: 'Pokémon Preview Slot', price: 'LIVE ON EBAY', grade: 'CARD MAN JAM • POKÉMON', note: 'Real photo coming when inventory is uploaded.', art: 'fire' },
-  { title: 'Yu-Gi-Oh! Preview Slot', price: 'LIVE ON EBAY', grade: 'CARD MAN JAM • YU-GI-OH!', note: 'Built-in art, no broken image links.', art: 'psychic' },
-  { title: 'Sports / Slab Preview Slot', price: 'LIVE ON EBAY', grade: 'CARD MAN JAM • SLABS', note: 'Tap through to current storefront.', art: 'water' }
-];
+const start = document.getElementById('startScreen');
+const press = document.getElementById('pressStart');
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
 
-function makeStars(){
-  const wrap=document.getElementById('stars');
-  for(let i=0;i<70;i++){
-    const s=document.createElement('span');s.className='star';
-    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
-    s.style.animationDelay=Math.random()*2+'s';wrap.appendChild(s);
-  }
+function playStartSound(){
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const notes = [523.25, 659.25, 783.99];
+    notes.forEach((freq,i)=>{
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.0001, ctx.currentTime + i*.09);
+      gain.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + i*.09 + .015);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + i*.09 + .08);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(ctx.currentTime + i*.09);
+      osc.stop(ctx.currentTime + i*.09 + .1);
+    });
+  }catch(e){}
 }
-function renderCards(){
-  const el=document.getElementById('cards');
-  el.innerHTML = cards.map((c,i)=>`<article class="card">
-    <div class="slabArt" data-grade="${c.grade}"><div class="fakeCard ${c.art}"></div></div>
-    <p class="eyebrow">VAULT SLOT ${i+1}</p>
-    <h3>${c.title}</h3>
-    <div class="price">${c.price}</div>
-    <p>${c.note}</p>
-    <a class="btn small" href="${EBAY_URL}" target="_blank" rel="noopener">VIEW EBAY</a>
-  </article>`).join('');
+
+press?.addEventListener('click',()=>{
+  playStartSound();
+  document.querySelectorAll('main section').forEach((el,i)=>setTimeout(()=>el.classList.add('fade-in'),i*120));
+  start.classList.add('hide');
+  localStorage.setItem('cmjStarted','yes');
+});
+
+if(localStorage.getItem('cmjStarted')==='yes'){
+  start.style.display = 'none';
 }
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
 
-document.getElementById('pack').addEventListener('click',()=>toast('Vault preview opened — real inventory coming soon.'));
-document.getElementById('pack').addEventListener('keydown',e=>{if(e.key==='Enter')toast('Vault preview opened — real inventory coming soon.')});
-document.getElementById('helper').addEventListener('click',()=>toast('Card Man Jam: buying, selling, trading in NJ.'));
-document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
-document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+menuBtn?.addEventListener('click',()=>nav.classList.toggle('open'));
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 
-makeStars();renderCards();
+document.querySelectorAll('[data-tilt]').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = `perspective(800px) rotateY(${x*6}deg) rotateX(${-y*6}deg) translateY(-3px)`;
+  });
+  card.addEventListener('mouseleave',()=> card.style.transform = '');
+});
+
+setInterval(()=>{
+  const s = document.createElement('span');
+  s.className = 'sparkle';
+  s.style.left = Math.random()*innerWidth + 'px';
+  s.style.top = (Math.random()*innerHeight) + 'px';
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),1100);
+}, 450);
+
+const buddy = document.querySelector('.snorlax');
+buddy?.addEventListener('click',()=>{
+  buddy.textContent = buddy.textContent === '💤' ? '😳' : '💤';
+  playStartSound();
+});
