@@ -24,8 +24,10 @@ function playStartSound(){
 
 press?.addEventListener('click',()=>{
   playStartSound();
+  start.classList.add('flicker');
+  document.querySelector('.site-shell')?.classList.add('booting');
   document.querySelectorAll('main section').forEach((el,i)=>setTimeout(()=>el.classList.add('fade-in'),i*120));
-  start.classList.add('hide');
+  setTimeout(()=>start.classList.add('hide'), 520);
   localStorage.setItem('cmjStarted','yes');
 });
 
@@ -59,4 +61,10 @@ const buddy = document.querySelector('.snorlax');
 buddy?.addEventListener('click',()=>{
   buddy.textContent = buddy.textContent === '💤' ? '😳' : '💤';
   playStartSound();
+});
+
+
+document.getElementById('replayIntro')?.addEventListener('click',()=>{
+  localStorage.removeItem('cmjStarted');
+  location.reload();
 });

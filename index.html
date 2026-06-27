@@ -31,28 +31,36 @@
         <a href="#about">About</a>
         <a href="#inventory">Inventory</a>
         <a href="#sell">Sell Cards</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener" class="btn small">Shop eBay</a>
       </nav>
     </header>
 
     <main id="home">
+      <div class="news-ticker" aria-label="Card Man Jam updates">
+        <div class="ticker-track">
+          <span>⭐ NEW LISTINGS EVERY WEEK • ALWAYS BUYING COLLECTIONS • BASED IN NEW JERSEY • 225+ ACTIVE EBAY LISTINGS • POKÉMON • SPORTS • YU-GI-OH! • FAST SHIPPING • THANKS FOR VISITING CARD MAN JAM ⭐</span>
+          <span>⭐ NEW LISTINGS EVERY WEEK • ALWAYS BUYING COLLECTIONS • BASED IN NEW JERSEY • 225+ ACTIVE EBAY LISTINGS • POKÉMON • SPORTS • YU-GI-OH! • FAST SHIPPING • THANKS FOR VISITING CARD MAN JAM ⭐</span>
+        </div>
+      </div>
+
       <section class="hero panel">
         <div class="ticker">★ NEW JERSEY CARD VAULT ★ BUYING SELLING TRADING ★ POKÉMON • YU-GI-OH! • SPORTS ★</div>
         <div class="hero-copy">
           <p class="eyebrow">★ Live from the vault ★</p>
-          <h2>Buy. Sell. Trade.<span>Collect.</span></h2>
-          <p>Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed wax, vintage, modern, and weird shiny cardboard treasures.</p>
+          <h2>Buy. Sell. Trade.<span>Repeat.</span></h2>
+          <p>Whether you're hunting vintage grails, modern hits, sealed wax, or your next favorite slab, Card Man Jam is built for collectors who love the hobby.</p>
           <div class="actions">
-            <a class="btn" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">▶ Shop Listings</a>
-            <a class="btn ghost" href="#inventory">View Inventory</a>
+            <a class="btn" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">▶ Shop eBay</a>
+            <a class="btn ghost" href="#inventory">Browse Inventory</a>
           </div>
         </div>
         <div class="hero-card slab-card tilt" data-tilt>
           <div class="slab-label">CARD MAN JAM • PSA / CGC / BGS</div>
           <div class="card-art holo"><span>CMJ</span></div>
-          <h3>Featured Slab</h3>
-          <p>Manual card photo coming in V9</p>
+          <h3>Featured Card</h3>
+          <p>Loading today’s featured slab...</p>
         </div>
       </section>
 
@@ -102,27 +110,30 @@
           <p>This section is intentionally staged for V9. It will either connect to your eBay API or accept manual uploads for your best cards.</p>
         </div>
         <div class="inventory-empty">
-          <div class="empty-card">?</div>
+          <div class="empty-card">SYNC</div>
           <div>
-            <h3>Inventory import coming soon</h3>
-            <p>For now, shop the live storefront. V9 can pull newest listings, images, titles, and prices directly from eBay once API credentials are set up.</p>
+            <h3>Inventory syncing...</h3>
+            <p>V9 will feature automatic eBay integration with live images, titles, prices, and listing links. For now, the live storefront is one tap away.</p>
             <a class="btn" href="https://ebay.us/m/N9yYVK" target="_blank" rel="noopener">Shop Current eBay Inventory</a>
           </div>
         </div>
       </section>
 
       <section class="section split" id="about">
-        <div class="panel story">
-          <p class="eyebrow">👋 Meet Mike</p>
-          <h2>Small seller from NJ with big dreams.</h2>
-          <p>I’ve been collecting sports and Pokémon cards since I was a kid. I’ve always been into collectibles, silver, gold, and hard assets — the kind of stuff you can hold, trade, and hunt for.</p>
-          <p>Card Man Jam is my retro card vault: Pokémon, Yu-Gi-Oh!, sports, slabs, sealed wax, vintage, modern, and whatever weird treasures I come across.</p>
-          <p>Peep my inventory — you never know what you may find.</p>
-        </div>
-        <div class="portrait-card tilt" data-tilt>
-          <div class="trainer">CMJ</div>
+        <div class="portrait-card photo-card tilt" data-tilt>
+          <div class="photo-frame">
+            <img src="assets/about-photo.jpg" alt="Mike from Card Man Jam at a card show" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="photo-fallback">CARD SHOW<br>PHOTO</div>
+          </div>
           <h3>Collector • Seller • Trader</h3>
           <p>New Jersey based. Always looking for the next deal, grail, or clean collection.</p>
+        </div>
+        <div class="panel story dialogue-story">
+          <p class="eyebrow">👋 Meet Mike</p>
+          <h2>Small seller from NJ with big dreams.</h2>
+          <div class="dialogue-box"><strong>Hey, I'm Mike.</strong><br>I’m a collector from New Jersey who’s been into sports cards and Pokémon since I was a kid.</div>
+          <div class="dialogue-box">I’ve always loved collectibles, silver, gold, sealed wax, hard assets, and the thrill of finding something overlooked.</div>
+          <div class="dialogue-box">Card Man Jam is my retro card vault. Peep the inventory — you never know what you may find.</div>
         </div>
       </section>
 
@@ -150,6 +161,7 @@
     <footer>
       <strong>CARD MAN JAM</strong>
       <span>Retro Card Vault • NJ • Always Buying, Selling & Trading</span>
+      <button id="replayIntro" class="footer-link">Replay Intro</button>
     </footer>
   </div>
 
