@@ -1,134 +1,49 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Card Man Jam | The Vault</title>
-  <meta name="description" content="Hand-picked cards, slabs, sealed products, and collector finds from Card Man Jam.">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="stars" id="stars"></div>
+"use client";
 
-  <header class="topbar">
-    <a class="brand" href="#top">
-      <div class="orb"></div>
-      <div>
-        <div class="logoText">CARD MAN JAM</div>
-        <div class="tiny">HAND-PICKED CARD VAULT</div>
-      </div>
-    </a>
-    <nav>
-      <a href="#shop">SHOP</a>
-      <a href="#about">ABOUT</a>
-      <a href="#sell">SELL TO ME</a>
-      <button class="btn small" id="cartButton">CART <span id="cartCount">0</span></button>
-    </nav>
-  </header>
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import type { CartItem } from "@/lib/types";
 
-  <main id="top">
-    <section class="hero gamePanel">
-      <div class="ticker"><span>◆ THE VAULT IS OPEN ◆ SMALL DROPS ◆ HAND-PICKED CARDS ◆ NEW JERSEY ◆</span></div>
-      <div class="heroGrid">
-        <div>
-          <p class="eyebrow">LIVE FROM THE VAULT</p>
-          <h1>Small Drops.<br><span>Big Finds.</span></h1>
-          <p class="sub">No giant marketplace. Just cards I personally picked, photographed, priced, and added to the vault.</p>
-          <div class="ctaRow">
-            <a class="btn" href="#shop">ENTER THE VAULT</a>
-            <a class="btn ghost" href="#sell">SELL YOUR CARDS</a>
-          </div>
-        </div>
+type CartContextType = {
+  items: CartItem[];
+  open: boolean;
+  setOpen: (v: boolean) => void;
+  add: (item: CartItem) => void;
+  remove: (id: string) => void;
+  clear: () => void;
+};
 
-        <button class="pack" id="pack">
-          <div class="packTop">CARDMANJAM</div>
-          <div class="packCenter">VAULT<br>DROP</div>
-          <span>TAP TO OPEN</span>
-        </button>
-      </div>
-    </section>
+const CartContext = createContext<CartContextType | null>(null);
 
-    <section class="statStrip">
-      <div><b>HAND</b><span>SELECTED INVENTORY</span></div>
-      <div><b>1 OF 1</b><span>MOST ITEMS HAVE QTY 1</span></div>
-      <div><b>NJ</b><span>BUY • SELL • TRADE</span></div>
-    </section>
+export function CartProvider({ children }: { children: React.ReactNode }) {
+  const [items, setItems] = useState<CartItem[]>([]);
+  const [open, setOpen] = useState(false);
 
-    <section id="dropBanner" class="dropBanner gamePanel hidden">
-      <p class="eyebrow">LATEST VAULT DROP</p>
-      <h2>Tonight’s hand-picked additions are live.</h2>
-      <p>Fresh cards were just added. Once a one-copy item sells, it is gone.</p>
-      <a class="btn" href="#shop">SEE THE DROP</a>
-    </section>
+  useEffect(() => {
+    const saved = localStorage.getItem("cmj-cart-v2");
+    if (saved) setItems(JSON.parse(saved));
+  }, []);
 
-    <section id="shop" class="section">
-      <div class="sectionHead">
-        <p class="eyebrow">THE CARD MAN JAM VAULT</p>
-        <h2>Recently Added</h2>
-        <p>Each listing is added by hand. Photos are part of the description.</p>
-      </div>
+  useEffect(() => {
+    localStorage.setItem("cmj-cart-v2", JSON.stringify(items));
+  }, [items]);
 
-      <div class="filters">
-        <button class="filter active" data-filter="all">ALL</button>
-        <button class="filter" data-filter="slab">SLABS</button>
-        <button class="filter" data-filter="single">SINGLES</button>
-        <button class="filter" data-filter="sealed">SEALED</button>
-        <button class="filter" data-filter="sold">SOLD VAULT</button>
-      </div>
+  const value = useMemo(() => ({
+    items,
+    open,
+    setOpen,
+    add(item: CartItem) {
+      setItems((prev) => prev.some((p) => p.id === item.id) ? prev : [...prev, item]);
+      setOpen(true);
+    },
+    remove(id: string) { setItems((prev) => prev.filter((p) => p.id !== id)); },
+    clear() { setItems([]); }
+  }), [items, open]);
 
-      <div class="cards" id="cards"></div>
-    </section>
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+}
 
-    <section id="about" class="gamePanel split">
-      <div>
-        <p class="eyebrow">MEET THE COLLECTOR</p>
-        <h2>Built by a collector, not a warehouse.</h2>
-        <p>Card Man Jam is a small New Jersey card business focused on cards that are interesting, nostalgic, rare, beautiful, or simply too cool to leave behind.</p>
-        <p>Every listing is reviewed and added personally. New inventory arrives in small curated drops instead of giant automated uploads.</p>
-      </div>
-      <div class="profBox">
-        <div class="prof">JC</div>
-        <div class="speech">Most vault items are single-copy listings. When they sell, they are gone.</div>
-      </div>
-    </section>
-
-    <section id="sell" class="gamePanel sellPanel">
-      <p class="eyebrow">SELL TO CARD MAN JAM</p>
-      <h2>Got cards sitting around?</h2>
-      <p>I buy Pokémon, Yu-Gi-Oh!, sports cards, slabs, sealed products, and full collections. Local New Jersey deals or shipped collections are welcome.</p>
-      <a class="btn" href="mailto:cardmanjam@gmail.com?subject=Cards%20for%20Sale">EMAIL PHOTOS</a>
-    </section>
-  </main>
-
-  <footer>
-    <div><b>CARD MAN JAM</b><p>Hand-picked cards from New Jersey.</p></div>
-    <div class="footerLinks">
-      <a href="terms.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="shipping.html">Shipping</a>
-      <a href="returns.html">Returns</a>
-      <a href="condition.html">Condition Guide</a>
-      <a href="mailto:cardmanjam@gmail.com">Contact</a>
-    </div>
-    <p class="disclaimer">Card Man Jam is an independent seller and is not affiliated with Pokémon, Nintendo, PSA, CGC, Beckett, eBay, or other referenced brands.</p>
-  </footer>
-
-  <aside class="cartDrawer" id="cartDrawer">
-    <div class="cartHeader">
-      <div><p class="eyebrow">YOUR PICKS</p><h2>Vault Cart</h2></div>
-      <button class="iconButton" id="closeCart">×</button>
-    </div>
-    <div id="cartItems" class="cartItems"></div>
-    <div class="cartBottom">
-      <div class="cartTotal"><span>Subtotal</span><b id="cartTotal">$0.00</b></div>
-      <p class="cartNote">Shipping and tax will be calculated at checkout.</p>
-      <button class="btn checkoutButton" id="checkoutButton">SECURE STRIPE CHECKOUT</button>
-    </div>
-  </aside>
-  <div class="overlay" id="overlay"></div>
-  <div class="toast" id="toast"></div>
-
-  <script src="products.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+export function useCart() {
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error("useCart must be used inside CartProvider");
+  return ctx;
+}
