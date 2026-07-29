@@ -1,0 +1,75 @@
+import { PRODUCT_CATALOG } from "./product-catalog.js";
+
+function respond(data, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { "content-type": "application/json" }
+  });
+}
+
+export async function POST(request) {
+  try {
+    const stripeKey = process.env.STRIPE_SECRET_KEY;
+    if (!stripeKey || !stripeKey.startsWith("sk_test_")) {
+      return respond({ error: "Stripe test secret key is missing from Vercel." }, 500);
+    }
+
+    const body = await request.json();
+    const ids = Array.isArray(body.productIds) ? [...new Set(body.productIds)] : [];
+    if (!ids.length) return respond({ error: "Your cart is empty." }, 400);
+
+    const products = ids.map((id) => {
+      const product = PRODUCT_CATALOG[id];
+      if (!product || !product.available) throw new Error(`Product ${id} is unavailable.`);
+      return product;
+    });
+
+    const hasSealed = products.some((p) => p.category === "sealed");
+    const shippingCents = hasSealed ? 1500 : 500;
+    const shippingName = hasSealed
+      ? "Flat-rate sealed or mixed-order shipping"
+      : "Tracked card and slab shipping";
+
+    const origin = new URL(request.url).origin;
+    const params = new URLSearchParams();
+    params.append("mode", "payment");
+    params.append("success_url", `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`);
+    params.append("cancel_url", `${origin}/cancel.html`);
+    params.append("customer_creation", "always");
+    params.append("shipping_address_collection[allowed_countries][0]", "US");
+
+    products.forEach((p, i) => {
+      params.append(`line_items[${i}][quantity]`, "1");
+      params.append(`line_items[${i}][price_data][currency]`, "usd");
+      params.append(`line_items[${i}][price_data][unit_amount]`, String(p.priceCents));
+      params.append(`line_items[${i}][price_data][product_data][name]`, p.title);
+    });
+
+    params.append("shipping_options[0][shipping_rate_data][type]", "fixed_amount");
+    params.append("shipping_options[0][shipping_rate_data][fixed_amount][amount]", String(shippingCents));
+    params.append("shipping_options[0][shipping_rate_data][fixed_amount][currency]", "usd");
+    params.append("shipping_options[0][shipping_rate_data][display_name]", shippingName);
+
+    const stripeResponse = await fetch("https://api.stripe.com/v1/checkout/sessions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${stripeKey}`,
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: params
+    });
+
+    const session = await stripeResponse.json();
+    if (!stripeResponse.ok) {
+      return respond({ error: session?.error?.message || "Stripe could not create checkout." }, stripeResponse.status);
+    }
+
+    return respond({ url: session.url });
+  } catch (error) {
+    return respond({ error: error.message || "Checkout failed." }, 500);
+  }
+}
+
+export function GET() {
+  return respond({ ok: true });
+}

@@ -1,46 +1,14 @@
-const PRODUCTS = [
-  {
-    id: "vault-001",
-    title: "Example Vintage Holo Slab",
-    price: 75,
-    category: "slab",
-    status: "available",
-    badge: "JUST ADDED",
-    meta: "Graded • Vintage • Single-copy listing",
-    image: "",
-    note: "A strong example of the type of hand-picked slab that belongs in the vault."
-  },
-  {
-    id: "vault-002",
-    title: "Example Cosmos Holo Single",
-    price: 18,
-    category: "single",
-    status: "available",
-    badge: "JAM'S PICK",
-    meta: "Raw single • Cosmos holo • Review photos",
-    image: "",
-    note: "The holo pattern and artwork look much better in person than a basic checklist listing suggests."
-  },
-  {
-    id: "vault-003",
-    title: "Example Sealed Collection Box",
-    price: 110,
-    category: "sealed",
-    status: "available",
-    badge: "VAULT PICK",
-    meta: "Factory sealed • Carefully packed",
-    image: "",
-    note: "A display-worthy sealed piece selected for the vault rather than mass uploaded."
-  },
-  {
-    id: "vault-004",
-    title: "Example Sold Vault Grail",
-    price: 140,
-    category: "sold",
-    status: "sold",
-    badge: "SOLD",
-    meta: "Sold from the vault",
-    image: "",
-    note: "Sold items remain visible so collectors can see what has passed through the vault."
-  }
-];
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Privacy Policy | Card Man Jam</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><div class="orb"></div><div><div class="logoText">CARD MAN JAM</div><div class="tiny">HAND-PICKED CARD VAULT</div></div></a></header>
+<main><article class="policy"><p class="eyebrow">STORE POLICY</p><h1>Privacy Policy</h1>
+<p><strong>Draft for review before launch.</strong></p>
+<h2>Information collected</h2><p>We may collect contact details, shipping and billing information, order details, device information, and communications you send us.</p>
+<h2>Payments</h2><p>Payment information will be processed by a third-party payment provider such as Stripe. Card Man Jam does not directly store full payment-card numbers.</p>
+<h2>How information is used</h2><p>Information is used to process orders, prevent fraud, provide support, comply with law, and improve the store.</p>
+<h2>Sharing</h2><p>Information may be shared with payment processors, shipping providers, website service providers, tax services, fraud-prevention vendors, and authorities when legally required.</p>
+<h2>Contact</h2><p>Privacy questions may be sent to cardmanjam@gmail.com.</p>
+<p><a class="btn" href="index.html">BACK TO THE VAULT</a></p></article></main>
+</body></html>
